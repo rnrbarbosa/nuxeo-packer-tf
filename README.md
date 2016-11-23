@@ -41,5 +41,5 @@ make ami
 
 Run
 ```
-make docker
+make docker <repo>/<image>
 ````
