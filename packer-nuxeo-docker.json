@@ -33,7 +33,7 @@
       {
         "only": ["docker"],
         "type": "docker-tag",
-        "repository": "rnrbarbosa/nuxeo",
+        "repository": "{{user `repo`}}",
         "tag": "{{user `nuxeo_version`}}"
       },
       "docker-push"
