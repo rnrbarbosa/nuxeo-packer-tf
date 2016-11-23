@@ -1,1 +1,1 @@
-# nuxeo-cloud-images-packer
+# aws-ami-packer-ci

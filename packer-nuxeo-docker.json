@@ -1,0 +1,43 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "region": "us-west-2",
+    "nuxeo_version": "8.3",
+    "subnet": "",
+    "vpc": ""
+  },
+
+"builders": [
+{
+   "type": "docker",
+   "image": "ubuntu:xenial",
+   "commit": true
+}
+],
+  "provisioners": [
+      {
+      "type": "shell",
+      "only": ["docker"],
+      "environment_vars": [
+        "NUXEO_VERSION={{user `nuxeo_version`}}"
+    	],
+      "scripts": [
+            "scripts/nuxeo-docker.sh"
+          ],
+      "only": ["docker"]
+   }
+  ],
+  "post-processors": [
+    [
+      {
+        "only": ["docker"],
+        "type": "docker-tag",
+        "repository": "rnrbarbosa/nuxeo",
+        "tag": "{{user `nuxeo_version`}}"
+      },
+      "docker-push"
+    ]
+  ]
+}
+}
