@@ -43,3 +43,9 @@ Run
 ```
 make docker <repo>/<image>
 ````
+
+### To Run the Docker Container
+
+```
+docker run -it -p 8080:8080 <repo>/nuxeo:8.3 supervisord
+```
