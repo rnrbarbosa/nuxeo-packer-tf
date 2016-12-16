@@ -4,8 +4,8 @@
     "aws_secret_key": "",
     "region": "us-west-2",
     "nuxeo_version": "8.3",
-    "subnet": "",
-    "vpc": ""
+    "subnet": "subnet-93acbae5",
+    "vpc": "vpc-5d0dd13a"
   },
 
 "builders": [{
@@ -15,6 +15,8 @@
   "region": "{{user `region`}}",
   "source_ami": "ami-b4a015d4",
   "instance_type": "t2.micro",
+    "subnet_id": "{{user `subnet`}}",
+  "vpc_id": "{{user `vpc`}}",
   "ssh_username": "ubuntu",
   "ami_name": "nuxeo-{{user `nuxeo_version`}} {{timestamp}}",
   "tags": {
